@@ -1,0 +1,39 @@
+node-gulp
+=========
+
+Docker image including most libs gulp needs:
+
+    assemble
+    bower
+    chai
+    glob
+    gulp
+    gulp-assemble
+    gulp-awspublish
+    gulp-changed
+    gulp-concat
+    gulp-debug
+    gulp-foreach
+    gulp-htmlmin
+    gulp-jshint
+    gulp-less
+    gulp-livereload
+    gulp-mocha
+    gulp-plumber
+    gulp-rename
+    gulp-sass
+    gulp-sourcemaps
+    gulp-uglify
+    gulp-watch
+    gulp-webserver
+    handlebars
+    jsdom
+    jshint-stylish
+    marked
+    moment
+    proxyquire
+    rimraf
+    sinon
+    sinon-chai
+    streamqueue
+    yaml-front-matter
