@@ -1,56 +1,15 @@
 node-gulp
 =========
-Docker image including most libs we need when using gulp.
 
-## Why?
-To speed up the redeployment when using docker and gulp
+Docker image to use gulp to build static assets served by NGINX as a static site. 
 
 ## How to use
 
-Dockerfile:
+Add a gulpfile.js to your project, configure it to output to /app/out
 
-    FROM iteam/node-gulp 
-    ADD package.json
-    RUN npm install
-    ADD gulpfile.js /app/
+    FROM tutum.co/iteamdev/node-gulp
     ADD src /app/src
+    ADD gulpfile.js /app/
+    RUN ./node_modules/.bin/gulp build
 
-The above dockerfile will install new packages not already installed in the base image and then run the default gulp command defined in the gulpfile.js
-
-
-## Pre installed packages
-
-    assemble
-    bower
-    chai
-    glob
-    gulp
-    gulp-assemble
-    gulp-awspublish
-    gulp-changed
-    gulp-concat
-    gulp-debug
-    gulp-foreach
-    gulp-htmlmin
-    gulp-jshint
-    gulp-less
-    gulp-livereload
-    gulp-mocha
-    gulp-plumber
-    gulp-rename
-    gulp-sass
-    gulp-sourcemaps
-    gulp-uglify
-    gulp-watch
-    gulp-webserver
-    handlebars
-    jsdom
-    jshint-stylish
-    marked
-    moment
-    proxyquire
-    rimraf
-    sinon
-    sinon-chai
-    streamqueue
-    yaml-front-matter
+The image will automatically add package.json and run npm install. It already have many preloaded gulp packages so it should be fairly quick to do a rebuild.
