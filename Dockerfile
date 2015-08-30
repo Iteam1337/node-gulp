@@ -1,11 +1,13 @@
 FROM node
 WORKDIR /app
+RUN apt-get update && apt-get install -y nginx
+RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+
+ADD default /etc/nginx/sites-enabled/
 ADD package.json /app/
 RUN npm install
-# RUN npm install -g bower
-# RUN bower install
-ADD src /app/src
-ADD gulpfile.js /app/
-VOLUME /app/out
-EXPOSE 9000
-CMD ./node_modules/.bin/gulp
+ONBUILD ADD package.json /app/
+ONBUILD RUN npm install
+
+EXPOSE 80
+CMD nginx

@@ -1,7 +1,24 @@
 node-gulp
 =========
+Docker image including most libs we need when using gulp.
 
-Docker image including most libs gulp needs:
+## Why?
+To speed up the redeployment when using docker and gulp
+
+## How to use
+
+Dockerfile:
+
+    FROM iteam/node-gulp 
+    ADD package.json
+    RUN npm install
+    ADD gulpfile.js /app/
+    ADD src /app/src
+
+The above dockerfile will install new packages not already installed in the base image and then run the default gulp command defined in the gulpfile.js
+
+
+## Pre installed packages
 
     assemble
     bower
