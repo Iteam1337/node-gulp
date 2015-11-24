@@ -19,10 +19,7 @@ server {
 
     server_name _;
 
-    if ($request_uri ~ medarbetare) {
-      rewrite /medarbetare/(.*) /coworkers/$1 permanent;
-      break;
-    }
+    include redirects.d;
 
     location / {
         # First attempt to serve request as file, then
