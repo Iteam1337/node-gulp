@@ -19,6 +19,11 @@ server {
 
     server_name _;
 
+    if ($request_uri ~ medarbetare) {
+      rewrite /medarbetare/(.*) /coworkers/$1 permanent;
+      break;
+    }
+
     location / {
         # First attempt to serve request as file, then
         # as directory, then fall back to displaying a 404.
